@@ -1,9 +1,8 @@
 name: cron
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 10,17 1-25 12 *'
+    - cron: '31 10,17 1-25 12 *'
 
 jobs:
   build:
@@ -22,7 +21,6 @@ jobs:
           pip install -r requirements.txt
       - name: execute py script
         env:
-          TZ: 'UTC'
           LEADERBOARD_ID: ${{ secrets.LEADERBOARD_ID }}
           SESSION_ID: ${{ secrets.SESSION_ID }}
           SLACK_WEBHOOK: ${{ secrets.WEBHOOK_URL }}
